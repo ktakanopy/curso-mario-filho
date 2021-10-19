@@ -1,0 +1,373 @@
+[
+    {
+        "label": "os.path",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os.path",
+        "description": "os.path",
+        "detail": "os.path",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "run_backend",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "run_backend",
+        "description": "run_backend",
+        "detail": "run_backend",
+        "documentation": {}
+    },
+    {
+        "label": "get_data",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "get_data",
+        "description": "get_data",
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "get_data",
+        "description": "get_data",
+        "isExtraImport": true,
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "ml_utils",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "isExtraImport": true,
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "youtube_dl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "youtube_dl",
+        "description": "youtube_dl",
+        "detail": "youtube_dl",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "bs4",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "bs4",
+        "description": "bs4",
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "joblib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
+        "documentation": {}
+    },
+    {
+        "label": "hstack",
+        "importPath": "scipy.sparse",
+        "description": "scipy.sparse",
+        "isExtraImport": true,
+        "detail": "scipy.sparse",
+        "documentation": {}
+    },
+    {
+        "label": "csr_matrix",
+        "importPath": "scipy.sparse",
+        "description": "scipy.sparse",
+        "isExtraImport": true,
+        "detail": "scipy.sparse",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_predictions",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_predictions():\n    videos = []\n    with sql.connect(run_backend.db_name) as conn: # \n        c = conn.cursor() #\n        for line in c.execute(\"SELECT * FROM videos\"): #\n            #(title, video_id, score, update_time)\n            line_json = {\"title\": line[0], \"video_id\": line[1], \"score\": line[2], \"update_time\": line[3]} #\n            videos.append(line_json)\n    predictions = []\n    for video in videos:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "main_page",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def main_page():\n    preds = get_predictions() #\n    return \"\"\"<head><h1>Recomendador de Vídeos do Youtube</h1></head>\n    <body>\n    <table>\n             {}\n    </table>\n    </body>\"\"\".format(preds) #\n@app.route('/predict')\ndef predict_api():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "predict_api",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def predict_api():\n    yt_video_id = request.args.get(\"yt_video_id\", default='')\n    ydl = youtube_dl.YoutubeDL({\"ignoreerrors\": True})\n    video_json_data = ydl.extract_info(\"https://www.youtube.com/watch?v={}\".format(yt_video_id), download=False)\n    if video_json_data is None:\n        return \"not found\"\n    p = ml_utils.compute_prediction(video_json_data)\n    output = {\"title\": video_json_data['title'], \"score\": p}\n    return json.dumps(output)\n    #https://sheltered-reef-65520.herokuapp.com/predict?yt_video_id=KL8qBKAHn_A",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\ndef get_predictions():\n    videos = []\n    with sql.connect(run_backend.db_name) as conn: # \n        c = conn.cursor() #\n        for line in c.execute(\"SELECT * FROM videos\"): #\n            #(title, video_id, score, update_time)\n            line_json = {\"title\": line[0], \"video_id\": line[1], \"score\": line[2], \"update_time\": line[3]} #\n            videos.append(line_json)\n    predictions = []",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "download_search_page",
+        "kind": 2,
+        "importPath": "get_data",
+        "description": "get_data",
+        "peekOfCode": "def download_search_page(query, page):\n    url = \"https://www.youtube.com/results?search_query={query}&sp=CAI%253D&p={page}\"\n    urll = url.format(query=query, page=page) \n    #print(urll)\n    response = rq.get(urll, headers={\"Accept-Language\": \"pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3\"}) #\n    return response.text\ndef download_video_page(link):\n    url = \"https://www.youtube.com{link}\"\n    urll = url.format(link=link)\n    print(urll)",
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "download_video_page",
+        "kind": 2,
+        "importPath": "get_data",
+        "description": "get_data",
+        "peekOfCode": "def download_video_page(link):\n    url = \"https://www.youtube.com{link}\"\n    urll = url.format(link=link)\n    print(urll)\n    response = rq.get(urll, headers={\"Accept-Language\": \"pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3\"}) # \n    return response.text\ndef parse_search_page(page_html):\n    parsed = bs4.BeautifulSoup(page_html)\n    tags = parsed.findAll(\"a\")\n    video_list = []",
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "parse_search_page",
+        "kind": 2,
+        "importPath": "get_data",
+        "description": "get_data",
+        "peekOfCode": "def parse_search_page(page_html):\n    parsed = bs4.BeautifulSoup(page_html)\n    tags = parsed.findAll(\"a\")\n    video_list = []\n    for e in tags:\n        if e.has_attr(\"aria-describedby\"):\n            link = e['href']\n            title = e['title']\n            data = {\"link\": link, \"title\": title}\n            video_list.append(data)",
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "parse_video_page",
+        "kind": 2,
+        "importPath": "get_data",
+        "description": "get_data",
+        "peekOfCode": "def parse_video_page(page_html):\n    parsed = bs4.BeautifulSoup(page_html, 'html.parser')\n    class_watch = parsed.find_all(attrs={\"class\":re.compile(r\"watch\")})\n    id_watch = parsed.find_all(attrs={\"id\":re.compile(r\"watch\")})\n    channel = parsed.find_all(\"a\", attrs={\"href\":re.compile(r\"channel\")})\n    meta = parsed.find_all(\"meta\")\n    data = dict()\n    for e in class_watch:\n        colname = \"_\".join(e['class'])\n        if \"clearfix\" in colname:",
+        "detail": "get_data",
+        "documentation": {}
+    },
+    {
+        "label": "clean_date",
+        "kind": 2,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "def clean_date(data):\n    if re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']) is None:\n        return None\n    raw_date_str_list = list(re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']).groups())\n    #print(raw_date_str_list)\n    if len(raw_date_str_list[0]) == 1:\n        raw_date_str_list[0] = \"0\"+raw_date_str_list[0]\n    raw_date_str_list[1] = mapa_meses[raw_date_str_list[1]]\n    clean_date_str = \" \".join(raw_date_str_list)\n    return pd.to_datetime(clean_date_str, format=\"%d %b %Y\")",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "clean_views",
+        "kind": 2,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "def clean_views(data):\n    raw_views_str = re.match(r\"(\\d+\\.?\\d*)\", data['watch-view-count'])\n    if raw_views_str is None:\n        return 0\n    raw_views_str = raw_views_str.group(1).replace(\".\", \"\")\n    #print(raw_views_str)\n    return int(raw_views_str)\ndef compute_features(data):\n    publish_date = pd.to_datetime(data['upload_date'])\n    views = data['view_count']",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "compute_features",
+        "kind": 2,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "def compute_features(data):\n    publish_date = pd.to_datetime(data['upload_date'])\n    views = data['view_count']\n    title = data['title']\n    features = dict()\n    features['tempo_desde_pub'] = (pd.Timestamp.today() - publish_date) / np.timedelta64(1, 'D')\n    features['views'] = views\n    features['views_por_dia'] = features['views'] / features['tempo_desde_pub']\n    del features['tempo_desde_pub']\n    vectorized_title = title_vec.transform([title])",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "compute_prediction",
+        "kind": 2,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "def compute_prediction(data):\n    feature_array = compute_features(data)\n    print(feature_array)\n    if feature_array is None:\n        return 0\n    p_rf = mdl_rf.predict_proba(feature_array)[0][1]\n    p_lgbm = mdl_lgbm.predict_proba(feature_array)[0][1]\n    p = 0.5*p_rf + 0.5*p_lgbm\n    #log_data(data, feature_array, p)\n    return p",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "log_data",
+        "kind": 2,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "def log_data(data, feature_array, p):\n    #print(data)\n    video_id = data.get('og:video:url', '')\n    data['prediction'] = p\n    data['feature_array'] = feature_array.todense().tolist()\n    #print(video_id, json.dumps(data))",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "mapa_meses",
+        "kind": 5,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "mapa_meses = {\"jan\": \"Jan\",\n            \"fev\": \"Feb\",\n            \"mar\": \"Mar\", \n            \"abr\": \"Apr\", \n            \"mai\": \"May\", \n            \"jun\": \"Jun\",\n            \"jul\": \"Jul\",\n            \"ago\": \"Aug\", \n            \"set\": \"Sep\", \n            \"out\": \"Oct\", ",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "mdl_rf",
+        "kind": 5,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "mdl_rf = jb.load(\"model/random_forest_20200208.pkl.z\")\nmdl_lgbm = jb.load(\"model/lgbm_20200208.pkl.z\")\ntitle_vec = jb.load(\"model/title_vectorizer_20200208.pkl.z\")\ndef clean_date(data):\n    if re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']) is None:\n        return None\n    raw_date_str_list = list(re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']).groups())\n    #print(raw_date_str_list)\n    if len(raw_date_str_list[0]) == 1:\n        raw_date_str_list[0] = \"0\"+raw_date_str_list[0]",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "mdl_lgbm",
+        "kind": 5,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "mdl_lgbm = jb.load(\"model/lgbm_20200208.pkl.z\")\ntitle_vec = jb.load(\"model/title_vectorizer_20200208.pkl.z\")\ndef clean_date(data):\n    if re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']) is None:\n        return None\n    raw_date_str_list = list(re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']).groups())\n    #print(raw_date_str_list)\n    if len(raw_date_str_list[0]) == 1:\n        raw_date_str_list[0] = \"0\"+raw_date_str_list[0]\n    raw_date_str_list[1] = mapa_meses[raw_date_str_list[1]]",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "title_vec",
+        "kind": 5,
+        "importPath": "ml_utils",
+        "description": "ml_utils",
+        "peekOfCode": "title_vec = jb.load(\"model/title_vectorizer_20200208.pkl.z\")\ndef clean_date(data):\n    if re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']) is None:\n        return None\n    raw_date_str_list = list(re.search(r\"(\\d+) de ([a-z]+)\\. de (\\d+)\", data['watch-time-text']).groups())\n    #print(raw_date_str_list)\n    if len(raw_date_str_list[0]) == 1:\n        raw_date_str_list[0] = \"0\"+raw_date_str_list[0]\n    raw_date_str_list[1] = mapa_meses[raw_date_str_list[1]]\n    clean_date_str = \" \".join(raw_date_str_list)",
+        "detail": "ml_utils",
+        "documentation": {}
+    },
+    {
+        "label": "update_db",
+        "kind": 2,
+        "importPath": "run_backend",
+        "description": "run_backend",
+        "peekOfCode": "def update_db():\n    ydl = youtube_dl.YoutubeDL({\"ignoreerrors\": True})\n    with sql.connect(db_name) as conn: #\n        for query in queries:\n                r = ydl.extract_info(\"ytsearchdate20:{}\".format(query), download=False)\n                video_list = r['entries']\n                for video in video_list:\n                    if video is None:\n                        continue\n                    p = compute_prediction(video)",
+        "detail": "run_backend",
+        "documentation": {}
+    },
+    {
+        "label": "queries",
+        "kind": 5,
+        "importPath": "run_backend",
+        "description": "run_backend",
+        "peekOfCode": "queries = [\"breakdancing\", \"bboy\", \"break dance\"]\ndb_name = 'videos.db' #\ndef update_db():\n    ydl = youtube_dl.YoutubeDL({\"ignoreerrors\": True})\n    with sql.connect(db_name) as conn: #\n        for query in queries:\n                r = ydl.extract_info(\"ytsearchdate20:{}\".format(query), download=False)\n                video_list = r['entries']\n                for video in video_list:\n                    if video is None:",
+        "detail": "run_backend",
+        "documentation": {}
+    },
+    {
+        "label": "db_name",
+        "kind": 5,
+        "importPath": "run_backend",
+        "description": "run_backend",
+        "peekOfCode": "db_name = 'videos.db' #\ndef update_db():\n    ydl = youtube_dl.YoutubeDL({\"ignoreerrors\": True})\n    with sql.connect(db_name) as conn: #\n        for query in queries:\n                r = ydl.extract_info(\"ytsearchdate20:{}\".format(query), download=False)\n                video_list = r['entries']\n                for video in video_list:\n                    if video is None:\n                        continue",
+        "detail": "run_backend",
+        "documentation": {}
+    }
+]
